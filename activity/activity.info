@@ -1,0 +1,8 @@
+[Activity]
+name = example
+bundle_id = edu.rit.SugarActivity.RapidPieMovement
+icon = exampleicon
+exec = sugar-activity activity.RapidPieMovementActivity
+show_launcher = yes
+activity_version = 1
+license = MIT
