@@ -1,21 +1,31 @@
 """
 Main file for Rapid Pie Movement
 """
-
+import pygame
 from sugar3.activity.activity import Activity
 from sugar3.activity.widgets import StopButton, ActivityButton
 
 from gi.repository import Gtk
 from gettext import gettext as _
+import game
 
-class RapidPieMovement(Activity):
+class RapidPieMovementActivity(Activity):
     def __init__(self, sugar_handle):
-        Activity.__init__(self, sugar_handle)
+        super(RapidPieMovementActivity, self).__init__(sugar_handle)
 
-        toolbar = Gtk.Toolbar()
+        # Creates a game instance
+        self.game = game.RapidPieMovementGame()
 
-        self.set_toolbar_box(toolbar)
+        #self.create_toolbar()
 
-        toolbar.insert(ActivityButton(self), -1)
+        self._pygamecanvas = sugargame.canvas.RapidPieCanvas(self)
 
+        self.set_canvas(self._pygamecanvs)
+        self._pygamecanvas.grab_focus()
+
+
+        # Start game
+        self._pygamecanvas.run_pygame(self.game_run)
+
+        
         
