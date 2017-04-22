@@ -38,7 +38,7 @@ class RapidPieMovementGame:
     def main_loop(self):
         self.running = True
         self.screen = pygame.display.get_surface()
-        self.scene = scenes.IntroScene(self)
+        self.scene = scenes.TitleScene(self)
         pygame.display.set_caption(self.caption)
         while self.running:
             self.scene.handle_inputs(pygame.event.get())
