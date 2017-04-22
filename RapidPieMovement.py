@@ -26,6 +26,7 @@ class RapidPieMovementGame:
         self.keylimepie = self.load_image("keylimepie.png")
         self.howtobtn = self.load_image("howtobn.png")
         self.title = self.load_image("title.png")
+        self.tutorial = self.load_image("tutorial.png")
 
     def load_image(self, path):
         return pygame.image.load(os.path.join(self.base_path, "game/assets/images/"+path))
