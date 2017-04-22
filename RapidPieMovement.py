@@ -10,7 +10,7 @@ class RapidPieMovementGame:
         self.clock = pygame.time.Clock()
         self.width = 1200
         self.height = 900
-        self.fps = 30
+        self.fps = 20
         self.caption = "Rapid Pie Movement"
         self.current_scene = scenes.TitleScene
         self.load_assets()
@@ -27,6 +27,10 @@ class RapidPieMovementGame:
         self.howtobtn = self.load_image("howtobn.png")
         self.title = self.load_image("title.png")
         self.tutorial = self.load_image("tutorial.png")
+        self.intro_1 = self.load_image("intro_1.png")
+        self.intro_2 = self.load_image("intro_2.png")
+        self.intro_3 = self.load_image("intro_3.png")
+        self.intro_4 = self.load_image("intro_4.png")
 
     def load_image(self, path):
         return pygame.image.load(os.path.join(self.base_path, "game/assets/images/"+path))
@@ -34,7 +38,7 @@ class RapidPieMovementGame:
     def main_loop(self):
         self.running = True
         self.screen = pygame.display.get_surface()
-        self.scene = scenes.TitleScene(self)
+        self.scene = scenes.IntroScene(self)
         pygame.display.set_caption(self.caption)
         while self.running:
             self.scene.handle_inputs(pygame.event.get())
