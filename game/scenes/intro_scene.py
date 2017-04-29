@@ -1,5 +1,6 @@
 import pygame
 from . import *
+from .game_scene import GameScene
 
 class IntroScene(BaseScene):
     def __init__(self, context, scene_num=1):
@@ -12,8 +13,7 @@ class IntroScene(BaseScene):
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RIGHT:
                     if self.scene_num > 4:
-                        # TODO Show Game scene
-                        print 'invalid'
+                        self.context.scene = GameScene(self.context)
                     else:
                         self.scene_num = self.scene_num + 1
                         if self.scene_num <= 4:
