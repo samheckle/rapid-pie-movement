@@ -61,6 +61,9 @@ class RapidPieMovementGame:
     def set_tutorial(self):
         self.scene = scenes.TutorialScene(self)
 
+    def set_game(self):
+        self.scene = scenes.GameScene(self)
+
 
 def main():
     pygame.init()

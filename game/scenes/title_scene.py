@@ -17,7 +17,7 @@ class TitleScene(BaseScene):
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 pos = pygame.mouse.get_pos()
                 if self.start_box.collidepoint(pos):
-                    self.context.scene = GameScene(self.context)
+                    self.context.set_intro()
 
                 elif self.help_box.collidepoint(pos):
                     self.context.set_tutorial()

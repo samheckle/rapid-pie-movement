@@ -13,7 +13,7 @@ class IntroScene(BaseScene):
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RIGHT:
                     if self.scene_num > 4:
-                        self.context.scene = GameScene(self.context)
+                        self.context.set_game()
                     else:
                         self.scene_num = self.scene_num + 1
                         if self.scene_num <= 4:
