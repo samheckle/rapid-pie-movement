@@ -12,7 +12,7 @@ class RapidPieMovementGame:
         self.height = 900
         self.fps = 20
         self.caption = "Rapid Pie Movement"
-        self.current_scene = scenes.TitleScene
+        self.title_scene = scenes.TitleScene
         self.load_assets()
 
     def load_assets(self):
@@ -25,8 +25,9 @@ class RapidPieMovementGame:
         self.cherrypie = self.load_image("cherrypie.png")
         self.keylimepie = self.load_image("keylimepie.png")
         self.howtobtn = self.load_image("howtobn.png")
+        self.startbtn = self.load_image("startbtn.png")
         self.title = self.load_image("title.png")
-        self.tutorial = self.load_image("tutorial.png")
+        self.tutorial = pygame.transform.scale(self.load_image("tutorial.png"), (1200,900))
         self.intro_1 = self.load_image("intro_1.png")
         self.intro_2 = self.load_image("intro_2.png")
         self.intro_3 = self.load_image("intro_3.png")
