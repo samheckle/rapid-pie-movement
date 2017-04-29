@@ -46,6 +46,16 @@ class RapidPieMovementGame:
             self.scene.render_scene()
             self.clock.tick(self.fps) 
 
+    def set_intro(self):
+        self.scene = scenes.IntroScene(self)
+
+    def set_title(self):
+        self.scene = scenes.TitleScene(self)
+
+    def set_tutorial(self):
+        self.scene = scenes.TutorialScene(self)
+
+
 def main():
     pygame.init()
 

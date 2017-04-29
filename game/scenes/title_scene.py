@@ -1,6 +1,5 @@
 import pygame
 from . import *
-from .tutorial_scene import TutorialScene
 
 class TitleScene(BaseScene):
     """
@@ -21,7 +20,7 @@ class TitleScene(BaseScene):
                     self.context.scene = GameScene(self.context)
 
                 elif self.help_box.collidepoint(pos):
-                    self.context.scene = TutorialScene(self.context)
+                    self.context.set_tutorial()
 
     def create_buttons(self):
         self.start_btn = pygame.Surface((436,104), pygame.SRCALPHA, 32)

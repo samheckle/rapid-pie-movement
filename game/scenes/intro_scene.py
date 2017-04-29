@@ -23,7 +23,7 @@ class IntroScene(BaseScene):
                         self.scene_num = self.scene_num - 1
                         self.context.screen.blit(self.get_scene_bg(self.scene_num), (0,0))
                     elif self.scene_num == 1:
-                        self.context.scene = TitleScene(self.context)
+                        self.context.set_title() 
 
     def get_scene_bg(self, num):
         if num == 1:
