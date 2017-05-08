@@ -7,14 +7,14 @@ class GameScene(BaseScene):
         BaseScene.__init__(self, context)
         self.level = 1
         self.correct = False
-        self.leveltxt = ["Into how many pieces should we cut these 2 pies to get 12 slices?", "Into how many pieces should we cut these 3 pies to get 15 slices?", "Into how many pieces should we cut these 4 pies to get 32 slices?"]
+        self.leveltxt = "Into how many pieces should we cut these {} pies to get {} slices?"
         self.btn_positions = [20,250,480]
         self.draw_scene()
 
     def draw_scene(self):
         self.context.screen.blit(self.context.background, (0,0))
         self.context.screen.blit(self.context.caterer, (750,100))
-        
+         
         text = self.context.font.render(self.leveltxt[self.level-1], 1, (255,255,255))
 
         self.context.screen.blit(text, (20, 750))

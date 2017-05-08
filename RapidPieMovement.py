@@ -35,6 +35,10 @@ class RapidPieMovementGame:
         self.intro_3 = self.load_image("intro_3.png")
         self.intro_4 = self.load_image("intro_4.png")
         self.btn_bg = self.load_image("numbtn.png")
+        self.txtbubble = self.load_image("Largetextbubble.png")
+        self.arrow = self.load_image("arrow.png")
+        self.endbg = self.load_image("gameover.png")
+        self.restartbtn = self.load_image("restartbtn.png")
         self.lvl2_bg = pygame.transform.scale(self.load_image("level2btn.png"), (201,73))
         self.lvl3_bg = pygame.transform.scale(self.load_image("level3btn.png"), (201,73))
         self.pies_lst = [self.applepie, self.bananacreampie, self.blueberrypie, self.cherrypie, self.keylimepie]
