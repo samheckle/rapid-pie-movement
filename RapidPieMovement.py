@@ -36,6 +36,7 @@ class RapidPieMovementGame:
         self.intro_4 = self.load_image("intro_4.png")
         self.btn_bg = self.load_image("numbtn.png")
         self.txtbubble = self.load_image("Largetextbubble.png")
+        self.smalltxtbubble = self.load_image("textbubble.png")
         self.arrow = self.load_image("arrow.png")
         self.endbg = self.load_image("gameover.png")
         self.restartbtn = self.load_image("restartbtn.png")
