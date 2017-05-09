@@ -9,7 +9,7 @@ from gi.repository import Gtk
 from gettext import gettext as _
 import game
 
-class RapidPieMovementActivity(Activity):
+class RapidPieMovementActivity(activity.Activity):
     def __init__(self, sugar_handle):
         super(RapidPieMovementActivity, self).__init__(sugar_handle)
 
