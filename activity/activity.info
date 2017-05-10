@@ -1,8 +1,9 @@
 [Activity]
-name = example
-bundle_id = edu.rit.SugarActivity.RapidPieMovement
-icon = icon
-exec = sugar-activity activity.RapidPieMovementActivity
-show_launcher = yes
+name = RPM
 activity_version = 1
+bundle_id = edu.rit.SugarActivity.RapidPieMovement
+exec = sugar-activity activity.RapidPieMovementActivity
+icon = icon
 license = MIT
+show_launcher = yes
+repository = https://github.com/theheckle/rapid-pie-movement.git
