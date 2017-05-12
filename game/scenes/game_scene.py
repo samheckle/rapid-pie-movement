@@ -8,17 +8,14 @@ class GameScene(BaseScene):
         self.level = 1
         self.freeze = False
         self.correct_num = 0
-        self.leveltxt = "Into how many pieces should we cut these {} pies to get {} slices?"
+        self.leveltxt = "How many pieces should we cut these {} pies to get {} slices?"
         self.btn_positions = [20,250,480]
         self.draw_scene()
 
     def draw_scene(self):
         self.context.screen.blit(self.context.background, (0,0))
         self.context.screen.blit(self.context.caterer, (750,100))
-        self.get_vals()
-        
-        while self.slicenum % self.numpies != 0:
-            self.get_vals()
+        self.get_vals() 
 
         self.answer = self.slicenum / self.numpies
         text = self.context.font.render(self.leveltxt.format(self.numpies, self.slicenum), 1, (255,255,255))
@@ -37,6 +34,8 @@ class GameScene(BaseScene):
         else:
             self.numpies = random.randint(3,4)
             self.slicenum = random.randrange(2, 60, self.numpies)
+        if self.numpies == 3:
+            self.slicenum = self.slicenum * 3
 
     def draw_pies(self):
         pies = self.context.pies_lst 
@@ -79,6 +78,7 @@ class GameScene(BaseScene):
         self.btn3.blit(text, (90,20))
         self.btn3_obj = self.context.screen.blit(self.btn3, (self.btn2_xpos, 820))
         self.arrow_box = None
+        self.quit_box = None
 
     def handle_inputs(self, events):
         for event in events:
@@ -113,10 +113,23 @@ class GameScene(BaseScene):
                     self.arrow_btn.blit(self.context.arrow, (0,0))
                     self.arrow_box = self.context.screen.blit(self.arrow_btn, (810,850))                  
 
-                if self.arrow_box != None and self.arrow_box.collidepoint(pos):
+                if self.arrow_box != None and self.arrow_box.collidepoint(pos) and self.freeze:
                     self.freeze = False
                     self.level += 1
                     self.draw_scene()
+
+                if self.quit_box != None and self.quit_box.collidepoint(pos) and self.freeze:
+                    self.context.screen.blit(self.context.endbg, (0,0))
+                    self.end_game()
+
+    def end_game(self): 
+        ans = float(self.correct_num) / float(self.level)
+        answertext = self.context.fontbig.render("{0:.0f}%".format(ans * 100), 1, (255,255,255))
+        correcttext = self.context.fontbig.render('{}'.format(str(self.correct_num)), 1, (255,255,255))
+        numqstext = self.context.fontbig.render('{}'.format(str(self.level)),1,(255,255,255))
+        self.context.screen.blit(answertext, (300,600))
+        self.context.screen.blit(numqstext, (300,230))
+        self.context.screen.blit(correcttext, (300, 420))
                     
     def remove_btns(self, x1, x2):
         surf = pygame.Surface((201,73))
@@ -124,12 +137,19 @@ class GameScene(BaseScene):
         self.context.screen.blit(surf, (x1, 820))
         self.context.screen.blit(surf, (x2, 820))
 
+        self.quitbtn = pygame.Surface((171,94), pygame.SRCALPHA, 32)
+        self.quitbtn.blit(self.context.quit, (0,0))
+        self.quit_box = self.context.screen.blit(self.quitbtn, (880,820))
+
     def draw_incorrect(self):
         correct_surface = pygame.Surface((339,141), pygame.SRCALPHA, 32)
         correct_surface.convert_alpha()
         correct_surface.blit(self.context.smalltxtbubble, (0,0))
         text = self.context.font.render("INCORRECT", 1, (255,0,0))
-        correct_surface.blit(text, (90,80))
+        correct_surface.blit(text, (90,60))
+        anstext = self.context.font.render("The answer was {}".format(str(self.answer)),1,(255,0,0))
+
+        correct_surface.blit(anstext,(90,80)) 
         self.context.screen.blit(correct_surface, (520,100))
 
     def draw_correct(self):

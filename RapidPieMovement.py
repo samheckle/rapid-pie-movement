@@ -39,6 +39,7 @@ class RapidPieMovementGame:
         self.smalltxtbubble = self.load_image("textbubble.png")
         self.arrow = self.load_image("arrow.png")
         self.endbg = self.load_image("gameover.png")
+        self.quit = self.load_image("quitbtn.png")
         self.restartbtn = self.load_image("restartbtn.png")
         self.lvl2_bg = pygame.transform.scale(self.load_image("level2btn.png"), (201,73))
         self.lvl3_bg = pygame.transform.scale(self.load_image("level3btn.png"), (201,73))
